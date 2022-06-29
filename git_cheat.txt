@@ -1,0 +1,8 @@
+git pull  : récupéré les fichier sur le dépop distant
+
+git add 'nom du fichier' ajouter les modification dans la liste d'attente git (faire tab pour l'autocomplétion)
+
+git commit -m 'Message des modif' valider les modifications avecu n petit text pour dire ce qu'on à fais
+
+
+git push 
