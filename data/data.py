@@ -10,11 +10,10 @@ class Datas():
         self.app = app
     
 
-    def get_image_ham_spam(self,type):
-        path=f'aaa.jpg'
-    
+    def get_image_good_format(self,image):
         
-        encoded_image = base64.b64encode(open(path, 'rb').read())
+        
+        encoded_image = base64.b64encode(image)
 
         trendImage = 'data:image/jpg;base64,{}'.format(encoded_image.decode())
 

@@ -3,7 +3,4 @@
 
 
 def callback_analyseur_affiche(app):
-    @app.Callback(Output('',''),
-    Input('',''),
-    States('',''))
-    def
+    pass
