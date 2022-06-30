@@ -3,5 +3,26 @@
 
 class Conf():
     def __init__(self):
-        pass
+        label = ['Drama',
+                    'Comedy',
+                    'Crime',
+                    'Action',
+                    'Thriller',
+                    'Documentary',
+                    'Adventure',
+                    'Science Fiction',
+                    'Animation',
+                    'Family',
+                    'Romance',
+                    'Mystery',
+                    'Horror',
+                    'Fantasy',
+                    'War',
+                    'Music',
+                    'Western',
+                    'History',
+                    'TV Movie']
+
+
+        
    

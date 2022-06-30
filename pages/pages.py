@@ -7,7 +7,8 @@ from dash import html, dash_table
 from dependancies.style import default_style_page
 from dependancies.htmlCreate import HtmlCreate
 from dependancies.conf import Conf
-
+import pandas as pd
+import base64
 
 class Pages():
     def __init__(self,app):
@@ -66,7 +67,7 @@ class Pages():
                 
             i+=nb_ligne
             
-        return html.Div(list_layout_by_col,style=self.defaut_style.style['style_form'])
+        return html.Div(list_layout_by_col,style=self.style_part_of_form)
 
     def make_col(self,num_col,nb_col,list_layout):
         logging.info('Start make_col')
@@ -103,3 +104,49 @@ class Pages():
         except Exception as error:
             logging.error(f'in get_layout_table_of_demande : {error}')
         return self.make_part_of_page(part_of_form,self.defaut_style.style['style_part_of_form'])
+
+    def make_image_with_table(self,img,table):
+        image = img if 'http' in img else 'data:image/jpg;base64,{}'.format( base64.b64encode(img).decode())
+
+
+        return html.Div(children=[
+
+            html.Div(children=[
+
+                     html.Img(id='import_img_detect',src=image,style={'height':'20%', 'width':'20%'})
+
+            ],style={'Witch':'50%'}),
+
+            html.Div(children=[
+
+                    table
+
+            ],style={'Witch':'50%'})
+
+        ])
+
+    def make_df_genre_to_html(self,couple):
+
+        df = couple[0]
+        model_name = couple[2]
+
+        return html.Div([
+            html.Div(children=[html.H4(model_name)],style={'witch':'100%'}),
+            html.Div(HtmlCreate().make_datatable_form('rien',['genre','probabilité'],data=df.to_dict()),style={'witch':'100%'})
+            
+            
+            ],style={'with':'50%'})
+
+
+
+
+    
+    def make_row(self,genre,proba):
+        return html.Div(children=[
+                html.Div([genre
+                ],style={'with':'50%'}),
+
+                html.Div([proba
+                ],style={'with':'50%'})
+
+        ],style={'with':'100%'})

@@ -11,7 +11,7 @@ class default_style_page():
                         'width_100_text_align_center': {'width': '100%','textAlign': 'center'},
                         'style_form': {'width': '75%', 'display': 'inline-block','textAlign': 'center'},
                         'style_col': None,
-                        'style_case': None,
+                        'style_case': {'width': '80%','textAlign': 'center','vertical-align':'top'},
                         
                      }
 
