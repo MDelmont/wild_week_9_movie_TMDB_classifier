@@ -25,14 +25,16 @@ class HtmlCreate():
                 ],style=style_case)
         return layout
 
-    def make_datatable_form(self,id,list_columns,dropdown=None,style_data_conditional=None,data=[]):
+    def make_datatable_form(self,id,list_columns,dropdown=None,style_data_conditional=None,data=None):
         logging.info(f'Start make_datatable_form')
-        columns = None#[ self.conf.dict_col_sql_to_col_datatable[col] if col in self.conf.dict_col_sql_to_col_datatable.keys() else logging.error(f'{col} not in dict_col_sql_to_col_datatable') for col in list_columns  ] 
-
+        logging.info(list_columns)
+        logging.info(data)
+        #columns = None#[ self.conf.dict_col_sql_to_col_datatable[col] if col in self.conf.dict_col_sql_to_col_datatable.keys() else logging.error(f'{col} not in dict_col_sql_to_col_datatable') for col in list_columns  ] 
+        
         layout = dash_table.DataTable(
                         id = id,
                         data=data,
-                        columns=columns,
+                        columns=list_columns,
                         page_size=30,
                         style_data={'wigth' :'auto','height' : 'auto'},
                         editable=True,

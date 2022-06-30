@@ -115,27 +115,47 @@ class Pages():
 
                      html.Img(id='import_img_detect',src=image,style={'height':'20%', 'width':'20%'})
 
-            ],style={'Witch':'50%'}),
+            ],style={'width':'50%'}),
 
             html.Div(children=[
 
                     table
 
-            ],style={'Witch':'50%'})
+            ],style={'width':'50%'})
 
-        ])
+        ],style = {'width':'100%', 'display': 'inline-block','textAlign': 'center'})
 
     def make_df_genre_to_html(self,couple):
         logging.info('make_df_genre_to_html')
         df = couple[0]
         model_name = couple[2]
+        df['genre'] = df.index
 
-        return html.Div([
-            html.Div(children=[html.H4(model_name)],style={'witch':'100%'}),
-            html.Div(HtmlCreate().make_datatable_form('rien',['genre','probabilité'],data=df.to_dict()),style={'witch':'100%'})
-            
-            
-            ],style={'with':'50%'})
+        df['proba'] =  df['proba'].apply(lambda x : round(x,2))
+        df['proba'] =  df['proba'].apply(str)
+        data = df.to_dict('records') if df.to_dict('records') else None
+
+        list_lign = [
+            html.Div(children=[ html.H6(model_name,style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}),
+           ]
+        logging.info(data)
+        if data:
+            list_lign.append( html.Div(children=[
+                    html.Div(children=[html.H6('genre')],style={'width':'50%'}),
+                    html.Div(children=[html.H6('Proba')],style={'width':'50%'}),
+                
+                ],style={'width':'100%'}))
+            for line in data:
+                list_lign.append(  html.Div(children=[
+                    html.Div(children=[html.H6(line['genre'])],style={'width':'50%'}),
+                    html.Div(children=[html.H6(line['proba'])],style={'width':'0%'}),
+                
+                ],style={'width':'100%'}))
+            return html.Div(children=list_lign)
+        else:
+       
+            list_lign.append(html.Div(children=[ html.H6('Not predict',style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}))
+            return html.Div(children=list_lign)
 
 
 
@@ -144,9 +164,9 @@ class Pages():
     def make_row(self,genre,proba):
         return html.Div(children=[
                 html.Div([genre
-                ],style={'with':'50%'}),
+                ],style={'width':'50%'}),
 
                 html.Div([proba
-                ],style={'with':'50%'})
+                ],style={'width':'50%'})
 
-        ],style={'with':'100%'})
+        ],style={'width':'100%'})

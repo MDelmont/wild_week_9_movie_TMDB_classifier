@@ -117,5 +117,5 @@ class Analyseur_affiche(Pages):
 
         return html.Div(children=[
             html.H5(titre_image),
-            html.Img(id='import_img_detect',src='https://image.tmdb.org/t/p/w342/ojDg0PGvs6R9xYFodRct2kdI6wC.jpg',style={'height':'20%', 'width':'20%'})
+            html.Img(id='import_img_detect',src='https://image.tmdb.org/t/p/w342/ojDg0PGvs6R9xYFodRct2kdI6wC.jpg',style={'height':'50%', 'width':'50%'})
         ])

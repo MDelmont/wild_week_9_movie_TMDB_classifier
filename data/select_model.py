@@ -25,7 +25,7 @@ class model():
         else:
             self.IMG_SIZE = 400
 
-   
+    
     def select_model(self,image):
         logging.info(self.name)
      
@@ -33,12 +33,15 @@ class model():
         logging.info(path)
         model=  models.load_model(path)
         logging.info('loadok')
+        
         img_prepross = self.parse_function_transfert(image)
+        logging.info('img_prepross SHAPE:' + str(img_prepross.shape))
         logging.info('parseok')
+        
         predict_value = model.predict(img_prepross)
         logging.info('predict ok')
 
-        df = pd.DataFrame(predict_value,index=['Drama','Comedy',
+        df = pd.DataFrame(predict_value, columns=['Drama','Comedy',
                     'Crime',
                     'Action',
                     'Thriller',
@@ -55,23 +58,23 @@ class model():
                     'Music',
                     'Western',
                     'History',
-                    'TV Movie'],columns=['Proba'])
-       
+                    'TV Movie'], index=['proba'])
+
+        logging.info(df)
+        df_t = df.T
+        logging.info(df_t)
         logging.info('df ok ')
-        df['proba'].sort_values(ascending = False, inplace=True)
         
-        df = df[df['proba'] > 0.5]
-
-        return df
-
-    
-
-    
-
-
-
-
+        logging.info(type(df_t))
+        logging.info(df_t.columns)
+        df_t.sort_values(by=['proba'],ascending = False, axis=0,inplace=True)
   
+        logging.info(type(df_t))
+        df_t = df_t[df_t['proba'] > 0.5]
+
+        return df_t
+
+    
 
 
     def parse_function_transfert(self,image):
@@ -85,13 +88,19 @@ class model():
         
         image_decoded = tf.image.decode_jpeg(  requests.get(image).content if 'http' in image else image, channels=self.CHANNELS)
 
+        logging.info('image_decoded SHAPE:' + str(image_decoded.shape))
+
         ### Decode it into a dense vector (uint8 tensor)
         
-        
+
         ### Resize it to fixed shape
         image_resized = tf.image.resize(image_decoded, [self.IMG_SIZE,self.IMG_SIZE])
+
+        logging.info('image_resized SHAPE:' + str(image_resized.shape))
         
         # ### Normalize it from [0, 255] to [0.0, 1.0]
         image_normalized = image_resized / 255.0
         
-        return np.array(image_normalized)
+        image_normalized = np.asarray([np.array(image_normalized)]).astype(np.float32)
+
+        return image_normalized

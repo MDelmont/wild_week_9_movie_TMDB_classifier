@@ -8,6 +8,7 @@ import logging
 def callback_analyseur_affiche(app):
     @app.callback(Output('image_contente', 'children'),
                 Output('upload-data','contents'),
+                Output('send_image','n_clicks'),
               Input('send_image','n_clicks'),
               State('in_url','value'),
               State('upload-data','contents'))
@@ -27,7 +28,7 @@ def callback_analyseur_affiche(app):
                         for img in drag_drop:
                             list__img_df.append([model(name_model).select_model(img),img,name_model])
                 except Exception as error:
-                    logging.error(error)
+                    logging.error(error, exc_info=True)
         logging.info('list__img_df')
         logging.info(list__img_df)
         list_build_df = []
@@ -36,14 +37,14 @@ def callback_analyseur_affiche(app):
             
 
             table = list_build_df.append(Pages(app).make_df_genre_to_html(couple))
-
+            logging.info('table is good')
            
             layout_img =  Pages(app).make_image_with_table(couple[1],table)
-
+            logging.info('layout_img is good')
             list_build_df.append(layout_img)
 
             logging.info(list_build_df)
-        return html.Div(list_build_df),None
+        return html.Div(children=list_build_df),[],0
 
 
 
