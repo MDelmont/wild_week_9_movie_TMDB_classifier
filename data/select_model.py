@@ -3,17 +3,18 @@
 
 import pandas as pd
 import tensorflow as tf
+
 from tensorflow.keras import models
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from keras.utils import load_img,img_to_array
 from tensorflow.keras.preprocessing import image
 import requests
 import numpy as np
 import base64
+import os
 from dependancies.conf import Conf
-
+import logging
 class model():
     def __init__(self,name):
         self.conf = Conf()
@@ -26,10 +27,16 @@ class model():
 
    
     def select_model(self,image):
-
-        model= models.load_model(f'E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier\data\models\{self.name}')
+        logging.info(self.name)
+     
+        path =os.getcwd()+'/data/models/'+self.name
+        logging.info(path)
+        model=  models.load_model(path)
+        logging.info('loadok')
         img_prepross = self.parse_function_transfert(image)
+        logging.info('parseok')
         predict_value = model.predict(img_prepross)
+        logging.info('predict ok')
 
         df = pd.DataFrame(predict_value,index=['Drama','Comedy',
                     'Crime',
@@ -50,7 +57,7 @@ class model():
                     'History',
                     'TV Movie'],columns=['Proba'])
        
-
+        logging.info('df ok ')
         df['proba'].sort_values(ascending = False, inplace=True)
         
         df = df[df['proba'] > 0.5]
@@ -73,7 +80,7 @@ class model():
             filename: string representing path to image
             label: 0/1 one-dimensional array of size N_LABELS
         """
-        
+        logging.info('parse_function_transfert')
         # print(url)
         
         image_decoded = tf.image.decode_jpeg(  requests.get(image).content if 'http' in image else image, channels=self.CHANNELS)

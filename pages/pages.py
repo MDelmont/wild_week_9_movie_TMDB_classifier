@@ -126,7 +126,7 @@ class Pages():
         ])
 
     def make_df_genre_to_html(self,couple):
-
+        logging.info('make_df_genre_to_html')
         df = couple[0]
         model_name = couple[2]
 

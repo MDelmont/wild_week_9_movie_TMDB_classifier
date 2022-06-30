@@ -4,26 +4,32 @@ from dash.dependencies import Input, Output,State
 from data.select_model import model
 from pages.pages import Pages
 from dash import html
+import logging
 def callback_analyseur_affiche(app):
     @app.callback(Output('image_contente', 'children'),
                 Output('upload-data','contents'),
-              Input('Button_send_new_demand','n_clicks'),
-              State('new_demande_Client','value'),
+              Input('send_image','n_clicks'),
+              State('in_url','value'),
               State('upload-data','contents'))
     def deplay_image_result(button,url,drag_drop):
-        
+        logging.info('deplay_image_result')
         list__img_df = []
         if button:
             for name_model in ['model_VGG16_transfert_learning_20','model_1500_10']:
-                if url:
-               
-                    list__img_df.append([model(name_model).select_model(url),url,name_model])
+                try:
+                    
+                    if url:
+                        logging.info(f"{name_model} {url}")
+                
+                        list__img_df.append([model(name_model).select_model(url),url,name_model])
 
-                if drag_drop:
-                    for img in drag_drop:
-                        list__img_df.append([model(name_model).select_model(img),img,name_model])
-
-        
+                    if drag_drop:
+                        for img in drag_drop:
+                            list__img_df.append([model(name_model).select_model(img),img,name_model])
+                except Exception as error:
+                    logging.error(error)
+        logging.info('list__img_df')
+        logging.info(list__img_df)
         list_build_df = []
         for couple in list__img_df:
 
@@ -36,9 +42,9 @@ def callback_analyseur_affiche(app):
 
             list_build_df.append(layout_img)
 
-        
+            logging.info(list_build_df)
         return html.Div(list_build_df),None
 
-        pass
+
 
 

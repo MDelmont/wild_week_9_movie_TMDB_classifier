@@ -53,7 +53,7 @@ class Analyseur_affiche(Pages):
             multiple=True),' en local'),
 
 
-            self.make_case(self,dcc.Input(className='form-control'),'en url')
+            self.make_case(self,dcc.Input(id='in_url',className='form-control'),'en url')
         
     
         
@@ -106,7 +106,7 @@ class Analyseur_affiche(Pages):
 
             html.H5('Resultat'),
             html.Div(id='image_contente',children=[
-                self.make_layout_for_images('test')
+               
 
   
         # Allow multiple files to be uploaded
