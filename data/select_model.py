@@ -3,12 +3,12 @@
 
 import pandas as pd
 import tensorflow as tf
-
 from tensorflow.keras import models
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.preprocessing import image
+
 import requests
 import numpy as np
 import base64
@@ -16,7 +16,8 @@ import os
 from dependancies.conf import Conf
 import logging
 class model():
-    def __init__(self,name):
+    def __init__(self,app,name):
+        self.app = app
         self.conf = Conf()
         self.CHANNELS=3
         self.name = name
@@ -25,13 +26,26 @@ class model():
         else:
             self.IMG_SIZE = 400
 
+
+    def make_variable_app_model(self):
+        
+
+        path_trans_learn =os.getcwd()+'/data/models/model_VGG16_transfert_learning_20'
+        self.app.model_trans_learn=  models.load_model(path_trans_learn)
+
+        path_model_1500_10 =os.getcwd()+'/data/models/model_1500_10'
+        self.app.model_1500_10 =  models.load_model(path_model_1500_10)
+
     
     def select_model(self,image):
         logging.info(self.name)
-     
-        path =os.getcwd()+'/data/models/'+self.name
-        logging.info(path)
-        model=  models.load_model(path)
+        if self.name == 'model_VGG16_transfert_learning_20' :
+            model = self.app.model_trans_learn
+        else:
+            model = self.app.model_1500_10
+        # path =os.getcwd()+'/data/models/'+self.name
+        # logging.info(path)
+        # model=  models.load_model(path)
         logging.info('loadok')
         
         img_prepross = self.parse_function_transfert(image)
@@ -68,9 +82,9 @@ class model():
         logging.info(type(df_t))
         logging.info(df_t.columns)
         df_t.sort_values(by=['proba'],ascending = False, axis=0,inplace=True)
-  
+        df_t = df_t.head(4)
         logging.info(type(df_t))
-        df_t = df_t[df_t['proba'] > 0.5]
+        #df_t = df_t[df_t['proba'] > 0.5]
 
         return df_t
 

@@ -9,12 +9,13 @@ from pages.presentation_du_projet import PresentationProject
 from pages.analyseur_affiche import Analyseur_affiche
 from pages.historique_recherche import Historyque_recherche
 from callback import callback
+from data.select_model import model
 application = App()
 app = application.app
 server = application.server
 header = Header()
 callback.import_all_callback(app)
-
+model(app,'temp').make_variable_app_model()
 
 #layout rendu par l'application
 app.layout = html.Div([

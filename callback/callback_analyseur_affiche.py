@@ -12,39 +12,40 @@ def callback_analyseur_affiche(app):
               Input('send_image','n_clicks'),
               State('in_url','value'),
               State('upload-data','contents'))
-    def deplay_image_result(button,url,drag_drop):
+    def deplay_image_result(button, url, drag_drop):
         logging.info('deplay_image_result')
         list__img_df = []
+        
+        tablesList = []
+
         if button:
-            for name_model in ['model_VGG16_transfert_learning_20','model_1500_10']:
-                try:
-                    
-                    if url:
-                        logging.info(f"{name_model} {url}")
+            ### getting the different images
+            allImages = []
+
+            if url:
+                allImages.append(url)
+
+            # if drag_drop:
+            #     allImages.append(url)
+
+            ### loop on the images
+            for tmpImage in allImages:
+
+                listModels = []
+
+                for name_model in ['model_VGG16_transfert_learning_20', 'model_1500_10']:
+                # for name_model in ['model_1500_10']:
+                   
+                    ### creating the DF for the tmp model
+                    contentModel = [model(app,name_model).select_model(tmpImage), name_model]
+                    listModels.append(contentModel)
+
                 
-                        list__img_df.append([model(name_model).select_model(url),url,name_model])
+                table = Pages(app).make_df_genre_to_html(tmpImage, listModels)
 
-                    if drag_drop:
-                        for img in drag_drop:
-                            list__img_df.append([model(name_model).select_model(img),img,name_model])
-                except Exception as error:
-                    logging.error(error, exc_info=True)
-        logging.info('list__img_df')
-        logging.info(list__img_df)
-        list_build_df = []
-        for couple in list__img_df:
+                tablesList.append(table)
 
-            
-
-            table = list_build_df.append(Pages(app).make_df_genre_to_html(couple))
-            logging.info('table is good')
-           
-            layout_img =  Pages(app).make_image_with_table(couple[1],table)
-            logging.info('layout_img is good')
-            list_build_df.append(layout_img)
-
-            logging.info(list_build_df)
-        return html.Div(children=list_build_df),[],0
+        return html.Div(children=tablesList),[],0
 
 
 

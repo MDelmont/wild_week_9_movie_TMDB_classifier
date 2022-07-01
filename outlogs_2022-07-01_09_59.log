@@ -1,0 +1,107 @@
+INFO:root:[ INITIALISATION : APP for Back office 2022-07-01_09_59 ]
+INFO:root:Start make_case
+INFO:root:Start make_case
+INFO:root:Start build_formulaire
+INFO:root:Start make_col
+INFO:root:Start make_col
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Analyseur d'affiche
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Historique de recherches
+INFO:root:Start make_part_of_page
+INFO:root:deplay_image_result
+INFO:root:deplay_image_result
+INFO:root:model_VGG16_transfert_learning_20
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(224, 224, 3)
+INFO:root:img_prepross SHAPE:(1, 224, 224, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance   Mystery    Horror   Fantasy       War     Music   Western   History  TV Movie
+proba -0.717035 -2.228752 -2.293048 -0.076563 -0.216217    -4.180841  -0.965923         0.435943  -3.785323  ... -2.429142 -2.030432 -2.562789 -2.481866 -3.236844 -3.580106 -4.429303 -2.431452 -5.933195
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama           -0.717035
+Comedy          -2.228752
+Crime           -2.293048
+Action          -0.076563
+Thriller        -0.216217
+Documentary     -4.180841
+Adventure       -0.965923
+Science Fiction  0.435943
+Animation       -3.785323
+Family          -3.092048
+Romance         -2.429142
+Mystery         -2.030432
+Horror          -2.562789
+Fantasy         -2.481866
+War             -3.236844
+Music           -3.580106
+Western         -4.429303
+History         -2.431452
+TV Movie        -5.933195
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:model_1500_10
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(400, 400, 3)
+INFO:root:img_prepross SHAPE:(1, 400, 400, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance  Mystery   Horror   Fantasy       War     Music   Western   History  TV Movie
+proba  0.596998  0.232315  0.220269  0.248799  0.291741     0.065429   0.193015         0.122058    0.04293  ...  0.178036  0.09949  0.11197  0.148529  0.064202  0.078076  0.063956  0.103008  0.045537
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama            0.596998
+Comedy           0.232315
+Crime            0.220269
+Action           0.248799
+Thriller         0.291741
+Documentary      0.065429
+Adventure        0.193015
+Science Fiction  0.122058
+Animation        0.042930
+Family           0.071702
+Romance          0.178036
+Mystery          0.099490
+Horror           0.111970
+Fantasy          0.148529
+War              0.064202
+Music            0.078076
+Western          0.063956
+History          0.103008
+TV Movie         0.045537
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:make_df_genre_to_html
+INFO:root:                 proba            genre
+Science Fiction   0.44  Science Fiction
+Action           -0.08           Action
+Thriller         -0.22         Thriller
+Drama            -0.72            Drama
+INFO:root:Index:Science Fiction
+INFO:root:Index:Action
+INFO:root:Index:Thriller
+INFO:root:Index:Drama
+INFO:root:         proba     genre
+Drama      0.6     Drama
+Thriller  0.29  Thriller
+Action    0.25    Action
+Comedy    0.23    Comedy
+INFO:root:Index:Drama
+INFO:root:Index:Thriller
+INFO:root:Index:Action
+INFO:root:Index:Comedy

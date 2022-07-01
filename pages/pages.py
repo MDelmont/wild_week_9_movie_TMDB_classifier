@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 import logging
 from dash import html, dash_table
 from dependancies.style import default_style_page
@@ -125,37 +124,160 @@ class Pages():
 
         ],style = {'width':'100%', 'display': 'inline-block','textAlign': 'center'})
 
-    def make_df_genre_to_html(self,couple):
+    def make_df_genre_to_html(self, img, couple):
+        
         logging.info('make_df_genre_to_html')
-        df = couple[0]
-        model_name = couple[2]
-        df['genre'] = df.index
+        
+        # modelsTable = html.Div(
+        #     children=[
 
-        df['proba'] =  df['proba'].apply(lambda x : round(x,2))
-        df['proba'] =  df['proba'].apply(str)
-        data = df.to_dict('records') if df.to_dict('records') else None
+        #     ]
+        # )
 
-        list_lign = [
-            html.Div(children=[ html.H6(model_name,style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}),
-           ]
-        logging.info(data)
-        if data:
-            list_lign.append( html.Div(children=[
-                    html.Div(children=[html.H6('genre')],style={'width':'50%'}),
-                    html.Div(children=[html.H6('Proba')],style={'width':'50%'}),
+        listModelsTables = []
+
+        ### loop on the models
+        for tmpModel in couple:
+
+            tmpListRows = []
+            
+            tmpDF = tmpModel[0]
+            tmpDF['genre'] = tmpDF.index
+            tmpDF['proba'] = tmpDF['proba'].apply(lambda x : round(x,2))
+            tmpDF['proba'] = tmpDF['proba'].apply(str)
+            # data = tmpDF.to_dict('records') if tmpDF.to_dict('records') else None
+            
+            logging.info(str(tmpDF))
+
+            for tmpIndex in tmpDF.index:
+                logging.info('Index:'+str(tmpIndex))
+                rowToAppend = html.Tr(
+                    children=[
+                        html.Td(
+                            children=[
+                                tmpDF.loc[tmpIndex]['genre']         ### genre name
+                            ],
+                            style={'width':'50%'}
+                        ),
+                        html.Td(
+                            children=[
+                                tmpDF.loc[tmpIndex]['proba']         ### probability value
+                            ],
+                            style={'width':'50%'}
+                        )
+                    ]
+                )
+
+                tmpListRows.append(rowToAppend)
+
+            
+            tmpTable = html.Table(
+                className='table table-hover',
+                children=[
+                    html.Tr(
+                        children=[
+                            html.Th(
+                                children=[
+                                    tmpModel[1]         ### model name
+                                ],
+                                colSpan=2,
+                                style={'text-align':'center'}
+                            )      
+                        ]
+                    ),
+                    html.Tr(
+                        children=[
+                            html.Td(
+                                children=[
+                                    'Genre'             ### genre header
+                                ],
+                                style={'width':'50%'}
+                            ),
+                            html.Td(
+                                children=[
+                                    'Probability'       ### probability header
+                                ],
+                                style={'width':'50%'}
+                            )     
+                        ]
+                    ),
+                    *tmpListRows
+                ]
+            )
+
+            listModelsTables.append(tmpTable)
+
+
+
+        ### creating the image
+        image = img if 'http' in img else 'data:image/jpg;base64,{}'.format( base64.b64encode(img).decode())
+
+        fullTable = html.Table(
+            children=[
+                html.Tr(
+                    children=[
+                        html.Td(
+                            children=[
+                                ## movie poster
+                                html.Img(id='import_img_detect', src=image, style={'width':'400px'})
+                            ],
+                            style={'width':'10%'}
+                        ),
+                        html.Td(
+                            children=[
+                                # html.Table(
+                                #     children=[
+                                #         ### headers
+                                #         html.Tr(
+                                #             children=[
+                                #                 html.Th('Genre'),
+                                #                 html.Th('Probability')
+                                #             ]
+                                #         ),
+
+                                #         ### all the rows about the probabilities
+                                #         html.Tr(
+                                #             children=[
+                                #                 # html.Td('Genre')
+                                #             ]
+                                #         )
+                                #     ]
+                                # )
+                                *listModelsTables
+                            ],
+                            style={'width':'90%'}
+                        )
+                    ],
+                    style={'height':'90%'}
+                )
+            ],
+            style={'border':'solid 2px #fefefe','width':'100%'}
+        )
+
+
+        # list_lign = [
+        #     html.Div(children=[ html.H6(model_name,style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}),
+        #    ]
+        # logging.info(data)
+        # if data:
+        #     list_lign.append( html.Div(children=[
+        #             html.Div(children=[html.H6('genre')],style={'width':'50%'}),
+        #             html.Div(children=[html.H6('Proba')],style={'width':'50%'}),
                 
-                ],style={'width':'100%'}))
-            for line in data:
-                list_lign.append(  html.Div(children=[
-                    html.Div(children=[html.H6(line['genre'])],style={'width':'50%'}),
-                    html.Div(children=[html.H6(line['proba'])],style={'width':'0%'}),
+        #         ],style={'width':'100%'}))
+        #     for line in data:
+        #         list_lign.append(  html.Div(children=[
+        #             html.Div(children=[html.H6(line['genre'])],style={'width':'50%'}),
+        #             html.Div(children=[html.H6(line['proba'])],style={'width':'0%'}),
                 
-                ],style={'width':'100%'}))
-            return html.Div(children=list_lign)
-        else:
+        #         ],style={'width':'100%'}))
+        #     return html.Div(children=list_lign)
+        # else:
        
-            list_lign.append(html.Div(children=[ html.H6('Not predict',style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}))
-            return html.Div(children=list_lign)
+        #     list_lign.append(html.Div(children=[ html.H6('Not predict',style={'width':'100%','textAlign': 'center'})],style={'width':'100%','display': 'inline-block'}))
+        #     return html.Div(children=list_lign)
+
+        return fullTable
 
 
 

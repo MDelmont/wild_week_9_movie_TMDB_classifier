@@ -9,7 +9,7 @@ class default_style_page():
                         'text_align_center': {'textAlign': 'center'},
                         'padding_top_5': {'padding-top':'5%'},
                         'width_100_text_align_center': {'width': '100%','textAlign': 'center'},
-                        'style_form': {'width': '75%', 'display': 'inline-block','textAlign': 'center'},
+                        'style_form': {'width': '80%', 'display': 'inline-block','textAlign': 'center'},
                         'style_col': None,
                         'style_case': {'width': '80%','textAlign': 'center','vertical-align':'top'},
                         

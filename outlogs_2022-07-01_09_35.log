@@ -1,0 +1,498 @@
+INFO:root:[ INITIALISATION : APP for Back office 2022-07-01_09_35 ]
+INFO:root:Start make_case
+INFO:root:Start make_case
+INFO:root:Start build_formulaire
+INFO:root:Start make_col
+INFO:root:Start make_col
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Analyseur d'affiche
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Historique de recherches
+INFO:root:Start make_part_of_page
+INFO:app:Dash is running on http://127.0.0.1:8050/
+
+INFO:root:[ INITIALISATION : APP for Back office 2022-07-01_09_35 ]
+INFO:root:Start make_case
+INFO:root:Start make_case
+INFO:root:Start build_formulaire
+INFO:root:Start make_col
+INFO:root:Start make_col
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Présentation du projet
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Analyseur d'affiche
+INFO:root:Start make_part_of_page
+INFO:root:Start to build page Historique de recherches
+INFO:root:Start make_part_of_page
+INFO:root:deplay_image_result
+INFO:root:deplay_image_result
+INFO:root:deplay_image_result
+INFO:root:model_VGG16_transfert_learning_20
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_VGG16_transfert_learning_20
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(2739, 2000, 3)
+INFO:root:image_resized SHAPE:(224, 224, 3)
+INFO:root:img_prepross SHAPE:(1, 224, 224, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance   Mystery    Horror   Fantasy       War     Music   Western   History  TV Movie
+proba -0.059846 -0.207275 -1.160687 -1.491664 -1.367974     -4.40721   -1.62715        -2.688922  -3.536201  ... -1.828342 -2.857869 -3.227364 -2.291759 -3.246048 -3.915172 -4.069626 -3.093647  -6.16345
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama           -0.059846
+Comedy          -0.207275
+Crime           -1.160687
+Action          -1.491664
+Thriller        -1.367974
+Documentary     -4.407210
+Adventure       -1.627150
+Science Fiction -2.688922
+Animation       -3.536201
+Family          -2.317320
+Romance         -1.828342
+Mystery         -2.857869
+Horror          -3.227364
+Fantasy         -2.291759
+War             -3.246048
+Music           -3.915172
+Western         -4.069626
+History         -3.093647
+TV Movie        -6.163450
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:model_1500_10
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_1500_10
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(2739, 2000, 3)
+INFO:root:image_resized SHAPE:(400, 400, 3)
+INFO:root:img_prepross SHAPE:(1, 400, 400, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime   Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...  Romance   Mystery   Horror   Fantasy       War     Music   Western   History  TV Movie
+proba  0.603166  0.213929  0.202675  0.22995  0.275989     0.053276   0.173545         0.104744   0.032628  ...  0.15889  0.084262  0.09495  0.131624  0.051023  0.063271  0.050667  0.086332  0.034729
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama            0.603166
+Comedy           0.213929
+Crime            0.202675
+Action           0.229950
+Thriller         0.275989
+Documentary      0.053276
+Adventure        0.173545
+Science Fiction  0.104744
+Animation        0.032628
+Family           0.057840
+Romance          0.158890
+Mystery          0.084262
+Horror           0.094950
+Fantasy          0.131624
+War              0.051023
+Music            0.063271
+Western          0.050667
+History          0.086332
+TV Movie         0.034729
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:make_df_genre_to_html
+INFO:root:                 proba            genre
+Drama            -0.06            Drama
+Comedy           -0.21           Comedy
+Crime            -1.16            Crime
+Thriller         -1.37         Thriller
+Action           -1.49           Action
+Adventure        -1.63        Adventure
+Romance          -1.83          Romance
+Fantasy          -2.29          Fantasy
+Family           -2.32           Family
+Science Fiction  -2.69  Science Fiction
+Mystery          -2.86          Mystery
+History          -3.09          History
+Horror           -3.23           Horror
+War              -3.25              War
+Animation        -3.54        Animation
+Music            -3.92            Music
+Western          -4.07          Western
+Documentary      -4.41      Documentary
+TV Movie         -6.16         TV Movie
+INFO:root:Index:Drama
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Thriller
+INFO:root:Index:Action
+INFO:root:Index:Adventure
+INFO:root:Index:Romance
+INFO:root:Index:Fantasy
+INFO:root:Index:Family
+INFO:root:Index:Science Fiction
+INFO:root:Index:Mystery
+INFO:root:Index:History
+INFO:root:Index:Horror
+INFO:root:Index:War
+INFO:root:Index:Animation
+INFO:root:Index:Music
+INFO:root:Index:Western
+INFO:root:Index:Documentary
+INFO:root:Index:TV Movie
+INFO:root:                proba            genre
+Drama             0.6            Drama
+Thriller         0.28         Thriller
+Action           0.23           Action
+Comedy           0.21           Comedy
+Crime             0.2            Crime
+Adventure        0.17        Adventure
+Romance          0.16          Romance
+Fantasy          0.13          Fantasy
+Science Fiction   0.1  Science Fiction
+Horror           0.09           Horror
+History          0.09          History
+Mystery          0.08          Mystery
+Music            0.06            Music
+Family           0.06           Family
+Documentary      0.05      Documentary
+War              0.05              War
+Western          0.05          Western
+TV Movie         0.03         TV Movie
+Animation        0.03        Animation
+INFO:root:Index:Drama
+INFO:root:Index:Thriller
+INFO:root:Index:Action
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Adventure
+INFO:root:Index:Romance
+INFO:root:Index:Fantasy
+INFO:root:Index:Science Fiction
+INFO:root:Index:Horror
+INFO:root:Index:History
+INFO:root:Index:Mystery
+INFO:root:Index:Music
+INFO:root:Index:Family
+INFO:root:Index:Documentary
+INFO:root:Index:War
+INFO:root:Index:Western
+INFO:root:Index:TV Movie
+INFO:root:Index:Animation
+INFO:root:deplay_image_result
+INFO:root:model_VGG16_transfert_learning_20
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_VGG16_transfert_learning_20
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(224, 224, 3)
+INFO:root:img_prepross SHAPE:(1, 224, 224, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance   Mystery    Horror  Fantasy       War     Music   Western   History  TV Movie
+proba -0.722494 -2.226764 -2.301083 -0.076087 -0.216438    -4.184009  -0.963384         0.438041  -3.792069  ... -2.429856 -2.036277 -2.567235  -2.4846 -3.244639 -3.588643 -4.430633 -2.443314 -5.939583
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama           -0.722494
+Comedy          -2.226764
+Crime           -2.301083
+Action          -0.076087
+Thriller        -0.216438
+Documentary     -4.184009
+Adventure       -0.963384
+Science Fiction  0.438041
+Animation       -3.792069
+Family          -3.095453
+Romance         -2.429856
+Mystery         -2.036277
+Horror          -2.567235
+Fantasy         -2.484600
+War             -3.244639
+Music           -3.588643
+Western         -4.430633
+History         -2.443314
+TV Movie        -5.939583
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:model_1500_10
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_1500_10
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(400, 400, 3)
+INFO:root:img_prepross SHAPE:(1, 400, 400, 3)
+INFO:root:parseok
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance   Mystery    Horror   Fantasy       War     Music   Western   History  TV Movie
+proba  0.596649  0.233116  0.220781  0.249457    0.2922     0.065907   0.193814         0.122751   0.043352  ...  0.178703  0.100139  0.112623  0.149147  0.064698  0.078656  0.064466  0.103583  0.045944
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama            0.596649
+Comedy           0.233116
+Crime            0.220781
+Action           0.249457
+Thriller         0.292200
+Documentary      0.065907
+Adventure        0.193814
+Science Fiction  0.122751
+Animation        0.043352
+Family           0.072266
+Romance          0.178703
+Mystery          0.100139
+Horror           0.112623
+Fantasy          0.149147
+War              0.064698
+Music            0.078656
+Western          0.064466
+History          0.103583
+TV Movie         0.045944
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:make_df_genre_to_html
+INFO:root:                 proba            genre
+Science Fiction   0.44  Science Fiction
+Action           -0.08           Action
+Thriller         -0.22         Thriller
+Drama            -0.72            Drama
+Adventure        -0.96        Adventure
+Mystery          -2.04          Mystery
+Comedy           -2.23           Comedy
+Crime             -2.3            Crime
+Romance          -2.43          Romance
+History          -2.44          History
+Fantasy          -2.48          Fantasy
+Horror           -2.57           Horror
+Family            -3.1           Family
+War              -3.24              War
+Music            -3.59            Music
+Animation        -3.79        Animation
+Documentary      -4.18      Documentary
+Western          -4.43          Western
+TV Movie         -5.94         TV Movie
+INFO:root:Index:Science Fiction
+INFO:root:Index:Action
+INFO:root:Index:Thriller
+INFO:root:Index:Drama
+INFO:root:Index:Adventure
+INFO:root:Index:Mystery
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Romance
+INFO:root:Index:History
+INFO:root:Index:Fantasy
+INFO:root:Index:Horror
+INFO:root:Index:Family
+INFO:root:Index:War
+INFO:root:Index:Music
+INFO:root:Index:Animation
+INFO:root:Index:Documentary
+INFO:root:Index:Western
+INFO:root:Index:TV Movie
+INFO:root:                proba            genre
+Drama             0.6            Drama
+Thriller         0.29         Thriller
+Action           0.25           Action
+Comedy           0.23           Comedy
+Crime            0.22            Crime
+Adventure        0.19        Adventure
+Romance          0.18          Romance
+Fantasy          0.15          Fantasy
+Science Fiction  0.12  Science Fiction
+Horror           0.11           Horror
+History           0.1          History
+Mystery           0.1          Mystery
+Music            0.08            Music
+Family           0.07           Family
+Documentary      0.07      Documentary
+War              0.06              War
+Western          0.06          Western
+TV Movie         0.05         TV Movie
+Animation        0.04        Animation
+INFO:root:Index:Drama
+INFO:root:Index:Thriller
+INFO:root:Index:Action
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Adventure
+INFO:root:Index:Romance
+INFO:root:Index:Fantasy
+INFO:root:Index:Science Fiction
+INFO:root:Index:Horror
+INFO:root:Index:History
+INFO:root:Index:Mystery
+INFO:root:Index:Music
+INFO:root:Index:Family
+INFO:root:Index:Documentary
+INFO:root:Index:War
+INFO:root:Index:Western
+INFO:root:Index:TV Movie
+INFO:root:Index:Animation
+INFO:root:deplay_image_result
+INFO:root:deplay_image_result
+INFO:root:model_VGG16_transfert_learning_20
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_VGG16_transfert_learning_20
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(224, 224, 3)
+INFO:root:img_prepross SHAPE:(1, 224, 224, 3)
+INFO:root:parseok
+WARNING:tensorflow:5 out of the last 5 calls to <function Model.make_predict_function.<locals>.predict_function at 0x000001EA269081F0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance   Mystery    Horror   Fantasy       War     Music   Western   History  TV Movie
+proba -0.717035 -2.228752 -2.293048 -0.076563 -0.216217    -4.180841  -0.965923         0.435943  -3.785323  ... -2.429142 -2.030432 -2.562789 -2.481866 -3.236844 -3.580106 -4.429303 -2.431452 -5.933195
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama           -0.717035
+Comedy          -2.228752
+Crime           -2.293048
+Action          -0.076563
+Thriller        -0.216217
+Documentary     -4.180841
+Adventure       -0.965923
+Science Fiction  0.435943
+Animation       -3.785323
+Family          -3.092048
+Romance         -2.429142
+Mystery         -2.030432
+Horror          -2.562789
+Fantasy         -2.481866
+War             -3.236844
+Music           -3.580106
+Western         -4.429303
+History         -2.431452
+TV Movie        -5.933195
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:model_1500_10
+INFO:root:E:\matth\Documents\Cours\Wild code school\Data Scientist\projet\projet_9\wild_week_9_movie_TMDB_classifier/data/models/model_1500_10
+INFO:root:deplay_image_result
+INFO:root:loadok
+INFO:root:parse_function_transfert
+INFO:root:image_decoded SHAPE:(1600, 1068, 3)
+INFO:root:image_resized SHAPE:(400, 400, 3)
+INFO:root:img_prepross SHAPE:(1, 400, 400, 3)
+INFO:root:parseok
+WARNING:tensorflow:6 out of the last 6 calls to <function Model.make_predict_function.<locals>.predict_function at 0x000001EA5EC0E700> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+INFO:root:predict ok
+INFO:root:          Drama    Comedy     Crime    Action  Thriller  Documentary  Adventure  Science Fiction  Animation  ...   Romance  Mystery   Horror   Fantasy       War     Music   Western   History  TV Movie
+proba  0.596998  0.232315  0.220269  0.248799  0.291741     0.065429   0.193015         0.122058    0.04293  ...  0.178036  0.09949  0.11197  0.148529  0.064202  0.078076  0.063956  0.103008  0.045537
+
+[1 rows x 19 columns]
+INFO:root:                    proba
+Drama            0.596998
+Comedy           0.232315
+Crime            0.220269
+Action           0.248799
+Thriller         0.291741
+Documentary      0.065429
+Adventure        0.193015
+Science Fiction  0.122058
+Animation        0.042930
+Family           0.071702
+Romance          0.178036
+Mystery          0.099490
+Horror           0.111970
+Fantasy          0.148529
+War              0.064202
+Music            0.078076
+Western          0.063956
+History          0.103008
+TV Movie         0.045537
+INFO:root:df ok 
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:Index(['proba'], dtype='object')
+INFO:root:<class 'pandas.core.frame.DataFrame'>
+INFO:root:make_df_genre_to_html
+INFO:root:                 proba            genre
+Science Fiction   0.44  Science Fiction
+Action           -0.08           Action
+Thriller         -0.22         Thriller
+Drama            -0.72            Drama
+Adventure        -0.97        Adventure
+Mystery          -2.03          Mystery
+Comedy           -2.23           Comedy
+Crime            -2.29            Crime
+Romance          -2.43          Romance
+History          -2.43          History
+Fantasy          -2.48          Fantasy
+Horror           -2.56           Horror
+Family           -3.09           Family
+War              -3.24              War
+Music            -3.58            Music
+Animation        -3.79        Animation
+Documentary      -4.18      Documentary
+Western          -4.43          Western
+TV Movie         -5.93         TV Movie
+INFO:root:Index:Science Fiction
+INFO:root:Index:Action
+INFO:root:Index:Thriller
+INFO:root:Index:Drama
+INFO:root:Index:Adventure
+INFO:root:Index:Mystery
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Romance
+INFO:root:Index:History
+INFO:root:Index:Fantasy
+INFO:root:Index:Horror
+INFO:root:Index:Family
+INFO:root:Index:War
+INFO:root:Index:Music
+INFO:root:Index:Animation
+INFO:root:Index:Documentary
+INFO:root:Index:Western
+INFO:root:Index:TV Movie
+INFO:root:                proba            genre
+Drama             0.6            Drama
+Thriller         0.29         Thriller
+Action           0.25           Action
+Comedy           0.23           Comedy
+Crime            0.22            Crime
+Adventure        0.19        Adventure
+Romance          0.18          Romance
+Fantasy          0.15          Fantasy
+Science Fiction  0.12  Science Fiction
+Horror           0.11           Horror
+History           0.1          History
+Mystery           0.1          Mystery
+Music            0.08            Music
+Family           0.07           Family
+Documentary      0.07      Documentary
+War              0.06              War
+Western          0.06          Western
+TV Movie         0.05         TV Movie
+Animation        0.04        Animation
+INFO:root:Index:Drama
+INFO:root:Index:Thriller
+INFO:root:Index:Action
+INFO:root:Index:Comedy
+INFO:root:Index:Crime
+INFO:root:Index:Adventure
+INFO:root:Index:Romance
+INFO:root:Index:Fantasy
+INFO:root:Index:Science Fiction
+INFO:root:Index:Horror
+INFO:root:Index:History
+INFO:root:Index:Mystery
+INFO:root:Index:Music
+INFO:root:Index:Family
+INFO:root:Index:Documentary
+INFO:root:Index:War
+INFO:root:Index:Western
+INFO:root:Index:TV Movie
+INFO:root:Index:Animation

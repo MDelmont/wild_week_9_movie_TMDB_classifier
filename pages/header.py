@@ -15,32 +15,32 @@ class Header():
             children = [
                 
          
-                dbc.NavItem(
-                    dbc.NavLink(
+                # dbc.NavItem(
+                #     dbc.NavLink(
                         
-                        "Présentation du projet",
-                        href='/presentation_du_projet',
+                #         "Présentation du projet",
+                #         href='/presentation_du_projet',
                        
-                    )
-                ),
+                #     )
+                # ),
 
                 dbc.NavItem(
                     dbc.NavLink(
                         
-                        "analyseur d'affiche",
+                        "Analyseur d'affiche",
                         href='/analyseur_affiche',
                        
                     )
                 ),
 
-                dbc.NavItem(
-                    dbc.NavLink(
+                # dbc.NavItem(
+                #     dbc.NavLink(
                         
-                        "historique des recherches",
-                        href='/historique_recherches',
+                #         "historique des recherches",
+                #         href='/historique_recherches',
                        
-                    )
-                ),
+                #     )
+                # ),
               
             ],
             
